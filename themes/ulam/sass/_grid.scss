@@ -1,0 +1,123 @@
+.indexGrid {
+  display: grid;
+  grid-template-areas:
+    "bb"
+    "card"
+    "foot";
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+
+  @media only screen and (min-width: 480px) and (max-width: 960px) {
+    grid-template-areas:
+      "bb bb"
+      "card card"
+      "foot foot";
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+  }
+
+  @media only screen and (min-width: 960px) {
+    grid-template-areas:
+      "bb   bb   bb"
+      "card card card"
+      "foot foot foot";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 3rem;
+  }
+
+  & > article:first-child {
+    grid-area: bb;
+    padding-bottom: 1rem;
+    margin-bottom: 0;
+    border-bottom: 1px solid #f0f0f0;
+
+    .post-preview-image {
+      max-height: 64vh;
+      overflow: hidden;
+    }
+    .post-preview-blurb {
+      h2 {
+        font-size: 2.7em;
+        margin-top: 2rem;
+      }
+      p {
+        font-size: 1.8em;
+      }
+    }
+  }
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 65em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid #f0f0f0;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: inline-flex;
+
+      a {
+        padding: 0.5rem 0.25rem;
+        margin-right: 1rem;
+        margin-left: 1rem;
+      }
+    }
+  }
+}
+
+.gridPost {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media only screen and (min-width: 960px) {
+    grid-template-columns: 1fr 0.35fr;
+  }
+}
+
+.video-preview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 3rem;
+
+  &-card {
+    h1 {
+      font-size: 1.4rem;
+      margin-top: 1rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+}
+
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+
+  li {
+    span {
+      margin-right: .5rem;
+      color: #888888;
+
+      &::after {
+        content: ":";
+      }
+    }
+    a {
+      display: block;
+    }
+  }
+}
