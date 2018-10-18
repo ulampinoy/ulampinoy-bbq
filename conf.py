@@ -136,9 +136,10 @@ TRANSLATIONS_PATTERN = '{path}.{lang}.{ext}'
 
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
+        ("/videos/", "Videos"),
+        ("/posts/", "Blog"),
         ("/archive.html", "Archive"),
-        ("/categories/", "Tags"),
-        ("/rss.xml", "RSS feed"),
+        ("/glossary/", "Glossary"),
     ),
 }
 
@@ -220,10 +221,10 @@ POSTS = (
     ("posts/*.html", "posts", "post.tmpl"),
 )
 PAGES = (
-    ("pages/*.rst", "pages", "page.tmpl"),
-    ("pages/*.md", "pages", "page.tmpl"),
-    ("pages/*.txt", "pages", "page.tmpl"),
-    ("pages/*.html", "pages", "page.tmpl"),
+    ("pages/*.rst", "", "page.tmpl"),
+    ("pages/*.md", "", "page.tmpl"),
+    ("pages/*.txt", "", "page.tmpl"),
+    ("pages/*.html", "", "page.tmpl"),
 )
 
 
@@ -424,14 +425,14 @@ HIDDEN_TAGS = ['mathjax']
 # using a forward slash ('/') to separate paths. Use a backslash ('\') to escape
 # a forward slash or a backslash (i.e. '\//\\' is a path specifying the
 # subcategory called '\' of the top-level category called '/').
-CATEGORY_ALLOW_HIERARCHIES = False
+CATEGORY_ALLOW_HIERARCHIES = True
 # If CATEGORY_OUTPUT_FLAT_HIERARCHY is set to True, the output written to output
 # contains only the name of the leaf category and not the whole path.
 CATEGORY_OUTPUT_FLAT_HIERARCHY = False
 
 # If CATEGORY_PAGES_ARE_INDEXES is set to True, each category's page will contain
 # the posts themselves. If set to False, it will be just a list of links.
-# CATEGORY_PAGES_ARE_INDEXES = False
+# CATEGORY_PAGES_ARE_INDEXES = True
 
 # Set descriptions for category pages to make them more interesting. The
 # default is no description. The value is used in the meta description
@@ -444,12 +445,13 @@ CATEGORY_OUTPUT_FLAT_HIERARCHY = False
 # }
 
 # Set special titles for category pages. The default is "Posts about CATEGORY".
-# CATEGORY_TITLES = {
-#    DEFAULT_LANG: {
-#        "blogging": "Meta-posts about blogging",
-#        "open source": "Posts about open source software"
-#    },
-# }
+CATEGORY_TITLES = {
+   DEFAULT_LANG: {
+       "blogging": "Meta-posts about blogging",
+       "open source": "Posts about open source software",
+       "glossary": "Glossary of Terms"
+   },
+}
 
 # If you do not want to display a category publicly, you can mark it as hidden.
 # The category will not be displayed on the category list page.
@@ -475,7 +477,7 @@ HIDDEN_CATEGORIES = []
 # POSTS destination is "foo/bar", and the path is "foo/bar/baz/quux",
 # the category will be "baz/quux" (or "baz" if only the first directory is considered).
 # Note that prefixes coming from translations are always ignored.
-# CATEGORY_DESTPATH_TRIM_PREFIX = False
+CATEGORY_DESTPATH_TRIM_PREFIX = True
 
 # If True, only the first directory of a path will be used.
 # CATEGORY_DESTPATH_FIRST_DIRECTORY_ONLY = True
@@ -495,7 +497,7 @@ HIDDEN_CATEGORIES = []
 # 'foo' might appear in 'posts/foo'). If the category does not come from a
 # destpath, first entry in POSTS followed by the category name will be used.
 # For this setting, category hierarchies are required and cannot be flattened.
-# CATEGORY_PAGES_FOLLOW_DESTPATH = False
+CATEGORY_PAGES_FOLLOW_DESTPATH = True
 
 # If ENABLE_AUTHOR_PAGES is set to True and there is more than one
 # author, author pages are generated.
@@ -531,13 +533,13 @@ HIDDEN_AUTHORS = ['Guest']
 # Final location for the main blog page and sibling paginated pages is
 # output / TRANSLATION[lang] / INDEX_PATH / index-*.html
 # (translatable)
-# INDEX_PATH = ""
+INDEX_PATH = "posts"
 
 # Optional HTML that displayed on “main” blog index.html files.
 # May be used for a greeting. (translatable)
-FRONT_INDEX_HEADER = {
-    DEFAULT_LANG: ''
-}
+# FRONT_INDEX_HEADER = {
+#     DEFAULT_LANG: ''
+# }
 
 # Create per-month archives instead of per-year
 # CREATE_MONTHLY_ARCHIVE = False
@@ -561,7 +563,7 @@ FRONT_INDEX_HEADER = {
 # If ARCHIVES_ARE_INDEXES is set to True, each archive page which contains a list
 # of posts will contain the posts themselves. If set to False, it will be just a
 # list of links.
-# ARCHIVES_ARE_INDEXES = False
+ARCHIVES_ARE_INDEXES = True
 
 # URLs to other posts/pages can take 3 forms:
 # rel_path: a relative URL to the current page/post (default)

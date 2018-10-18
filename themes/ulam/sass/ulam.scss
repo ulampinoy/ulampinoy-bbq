@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=EB+Garamond:400,500,600,700|Exo+2:600");
 @import "reset";
 @import "grid";
+@import "lists";
 @import "article";
 @import "variables";
 @import "mixins";
@@ -43,6 +44,21 @@ main {
   font-family: "EB Garamond", serif;
   max-width: 65em;
   margin: 0 auto;
+  padding: 2rem 0;
+
+  article {
+    header {
+      margin: 2rem 0;
+
+      h1 {
+        display: inline-block;
+        border-bottom: 7px solid rgba($color: #21ad67, $alpha: 0.4);
+      }
+    }
+    ul {
+      margin-left: 0;
+    }
+  }
 
   p {
     font-size: 1.4rem;

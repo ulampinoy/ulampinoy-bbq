@@ -14,16 +14,16 @@
     </header>
     {{ archive_nav.archive_navigation() }}
     {{ feeds_translations.translation_link(kind) }}
-    {% if posts %}
+    {% if pages %}
     <ul class="postlist">
-    {% for post in posts %}
+    {% for page in pages %}
         <li>
             <a href="{{ post.permalink() }}" class="listtitle">{{ post.title()|e }}</a>
         </li>
     {% endfor %}
     </ul>
     {% else %}
-    <p>{{ messages("No posts found.") }}</p>
+    <p>{{ messages("No pages found.") }}</p>
     {% endif %}
 </article>
 {% endblock %}
